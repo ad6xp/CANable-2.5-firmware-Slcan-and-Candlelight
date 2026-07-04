@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install ARM GCC",
+      "type": "shell",
+      "command": "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y gcc-arm-none-eabi > /tmp/armgcc-install.log 2>&1 && echo INSTALLED > /tmp/armgcc-install.done",
+      "options": {
+        "cwd": "/workspaces/CANable-2.5-firmware-Slcan-and-Candlelight"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Test shell task",
+      "type": "shell",
+      "command": "echo task-ok > /tmp/task-test.txt && whoami >> /tmp/task-test.txt",
+      "options": {
+        "cwd": "/workspaces/CANable-2.5-firmware-Slcan-and-Candlelight"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build G431 Slcan WeActStudioV2",
+      "type": "shell",
+      "command": "make  -f Make_G431_Slcan_WeActStudioV2 > /tmp/build-g431-slcan-weact.log 2>&1 && echo BUILT > /tmp/build-g431-slcan-weact.done",
+      "options": {
+        "cwd": "/workspaces/CANable-2.5-firmware-Slcan-and-Candlelight"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
